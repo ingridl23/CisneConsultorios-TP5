@@ -1,0 +1,550 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    ;
+}
+
+:root {
+    /* Primary Colors */
+    --primary-color: #cfebb6;
+    --secondary-color: #d9e4ff;
+    --tertiaryty-color: #ff7350;
+    --quaternary-color: #b9e192;
+    --tamanio-letra: 1rem;
+    --tamanio-letratitulo: 1.5rem;
+    --titulos1: h1 {
+        font-size: 2 em;
+        color: white;
+        text-align: center;
+        margin-bottom: 5 rem;
+        building: 2px solid white;
+    }
+    ;
+    --titulos2: h2 {
+        font-size: 1.3 em;
+    
+        text-align: center;
+        margin-bottom: 5 rem;
+    }
+
+    --titulos3: h3 {
+        font-size: 1.2 em;
+        color: grey;
+        text-align: center;
+        margin-bottom: 5 rem;
+    }
+
+
+
+}
+
+
+
+body {
+    background-color: rgb(161, 161, 161);
+}
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.divlogoyh1{
+display: flex;
+ align-items: center;
+  gap: .5rem;
+
+}
+
+#cisne{
+    font-size: 1.8rem;
+    color: white;
+    font-weight: bold;
+   
+}
+
+#logo{
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+   
+  
+}
+
+#servicios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-bottom: 3rem;
+}
+
+#consultoriostitulo{
+    background-color: var(--primary-color);
+    margin-top: 3rem;
+    padding: 1rem;
+    margin-bottom: 3rem;
+    color: rgb(102, 209, 111);
+    font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+
+}
+
+.btn_menu{
+    display: none;
+
+  font-size: 1.8rem; 
+  color: white;
+  cursor: pointer;
+}
+
+
+.container-head-nav{
+    background: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--gap);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+#navbar ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ 
+}
+
+
+.lista-container-nav  {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+ 
+}
+
+.lista-container-nav li a {
+  color: white;
+  text-decoration: none;
+  padding: .5rem;
+  border-radius: var(--radius);
+  transition: background .2s;
+
+}
+.lista-container-nav li a:hover {
+  background: rgba(255,255,255,.3);
+}
+
+
+h2{
+    text-align: center;
+    font-size:3rem;
+     font-family: Arial, Helvetica, sans-serif;
+     text-transform: uppercase;
+     font-weight: 900;
+     color: rgb(44, 165, 81);
+}
+
+
+
+
+/* ─── CARDS DE SERVICIOS ─── */
+.cards-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap);
+  margin: var(--gap) 0;
+}
+.card-servicio {
+  background: white;
+  border-radius: var(--radius);
+  padding: var(--gap);
+  max-width: 300px;
+  text-align: center;
+}
+.card-servicio img {
+  width: 100%; height: auto;
+  object-fit: contain;
+  margin-bottom: .5rem;
+}
+
+/* ─── PROFESIONALES ─── */
+.section-title {
+  margin-bottom: var(--gap);
+  font-size: 1.5rem;
+}
+.grid-profesionales {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: var(--gap);
+  justify-items: center;
+  text-align: center;
+}
+.prof-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: var(--gap);
+  width: 100%;
+  max-width: 280px;
+}
+.fotos-prof {
+  width: 150px; height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto var(--gap);
+}
+
+
+/* ─── INSTITUCIONES ─── */
+.institutos img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ─── UBICACIÓN & REDES ─── */
+.map-wrapper iframe {
+  width: 100%; height: 300px;
+  border: 0; border-radius: var(--radius);
+  margin-bottom: var(--gap);
+}
+.social-icons {
+  display: flex; justify-content: center; gap: 1rem;
+  margin-bottom: var(--gap);
+}
+.social-icons img {
+  width: 32px; height: 32px;
+}
+
+/* ─── BOTÓN LLAMADA ─── */
+.btn-call {
+  position: fixed;
+  bottom: 1.5rem; right: 1.5rem;
+  background: var(--primary);
+  padding: .8rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,.3);
+  text-decoration: none;
+  color: white;
+}
+
+
+
+/* ─── RESPONSIVE NAV ─── */
+@media (max-width: 768px) {
+  .btn_menu { display: block; }
+  .lista-container-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--primary);
+    flex-direction: column;
+    display: none;
+    padding: var(--gap) 0;
+    z-index: 15;
+  }
+  .lista-container-nav.show {
+    display: flex;
+  }
+  .lista-container-nav li {
+    margin: .5rem 0;
+  }
+}
+
+
+footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, #25dd81, #a5ffb4);
+    padding: 5rem;
+    color: #f0f0f0;
+}
+
+ol a {
+    margin-left: 2rem;
+}
+
+footer .redes {
+     display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+   
+}
+footer .redes img{
+    transition: transform 0.3s ease;
+}
+
+
+footer .redes a:hover img{
+    transform: scale(1.3);
+}
+
+
+/* Mobile */
+
+@media screen and (max-width: 768px) {
+    .btn_menu {
+        display: block;
+        color: white;
+        padding: 1rem;
+        cursor: pointer;
+        font-size: 2rem;
+        z-index: 10;
+        /* Asegura que el botón esté por encima de otros elementos */
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+    /* Hover del botón en móviles */
+    .btn_menu:hover {
+        color: var(--tertiaryty-color);
+        /* Cambiar color cuando se pasa el mouse */
+        transform: scale(1.3);
+        /* Efecto de aumentar tamaño */
+    }
+    .lista-container-nav {
+        max-height: 0;
+        overflow: hidden;
+        flex-direction: column;
+        background-color: var(--secondary-color);
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        transition: max-height 0.4s ease;
+        position: absolute;
+        top: 8rem;
+        /* Asegura que no se sobreponga al logo */
+    }
+    .lista-container-nav.show {
+        max-height: 100rem;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        left: 0;
+    }
+    /* Asegurar que el logo se alinee a la izquierda o centrado */
+    .container-head-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-container-img {
+        flex-grow: 1;
+        max-width: 50%;
+        /* Asegura que el logo no sea muy grande */
+    }
+    .menu ul li {
+        margin: 1rem 0;
+        /* Asegura que los enlaces no estén pegados entre sí */
+        min-width: auto;
+        min-height: auto;
+    }
+    /* Asegurarse de que el texto del menú no se sobreponga */
+    .menu ul li a {
+        font-size: 1rem;
+        /* Puedes ajustar esto según el tamaño que prefieras */
+        text-align: center;
+    }
+    .header-container-img {
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .submit {
+        font-size: 1rem;
+    }
+    .form-subtitulos {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+    input {
+        margin-bottom: 1.2rem;
+      
+    }
+    footer .redes a img {
+        display: flex;
+        flex-direction: column;
+        /* default para mobile */
+        margin-left: 2rem;
+    }
+}
+
+
+/* ✂ Base: ocultar overlay y modal por defecto */
+.modal-overlay,
+.modal {
+  display: none;
+}
+
+/* ✂ Mostrar overlay cuando tenga .open */
+.modal-overlay.open {
+  display: block;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 15;
+}
+
+/* ✂ Mostrar modal cuando tenga .open */
+.modal.open {
+  display: block;
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem 1.5rem 1.5rem;
+  width: 90%;
+  max-width: 380px;
+  box-shadow: 0 8px 24px rgba(57, 245, 135, 0.1);
+  z-index: 20;
+  text-align: center;
+}
+
+
+/* ─── ESTILO WIRE-FRAME PARA EL MODAL ─── */
+.modal {
+  display: none;               /* sigue oculto hasta que JS le ponga .open */
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem 1.5rem 1.5rem;
+  width: 90%;
+  max-width: 380px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  z-index: 20;
+  text-align: center;
+}
+
+/* overlay semitransparente */
+.modal-overlay.open {
+  display: block;
+  position: fixed; inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 15;
+}
+
+/* Cabecera del modal */
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.modal-header img {
+  width: 60px;
+  height: auto;
+}
+.modal-header span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+/* Botón de cerrar (X) */
+.modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: #666;
+}
+
+/* Títulos y márgenes */
+.modal h2 {
+  margin: 0;  /* ya lo cubre .modal-header */
+}
+.modal form {
+  margin-top: 0.5rem;
+}
+
+/* Inputs y labels (igual que antes, pero centrados) */
+.field-group {
+  position: relative;
+  margin: 1.25rem 0;
+}
+.field-group input {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 0.5rem 0;
+  background: transparent;
+  outline: none;
+  transition: border-color .3s;
+}
+.field-group label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0 .25rem;
+  transition: .2s ease all;
+  color: #999;
+  pointer-events: none;
+}
+.field-group input:focus {
+  border-color: var(--primary);
+}
+.field-group input:focus + label,
+.field-group input:not(:placeholder-shown) + label {
+  top: -1rem;
+  font-size: .85rem;
+  color: var(--primary);
+}
+
+/* Fieldset */
+form fieldset {
+  border: none;
+  margin: 1rem 0;
+  text-align: left;
+}
+form fieldset legend {
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+form fieldset label {
+  display: block;
+  margin: .25rem 0;
+  cursor: pointer;
+}
+
+/* Botón enviar */
+.submit {
+  position: relative;
+  overflow: hidden;
+  padding: .75rem 1.5rem;
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: .5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background .3s, color .3s;
+  margin-top: 1rem;
+}
+.submit:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
