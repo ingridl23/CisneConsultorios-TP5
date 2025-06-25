@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const formulario = document.querySelector(".form");
-    const submitBtn = formulario.querySelector(".btn");
+    const submitBtn = formulario.querySelector("#btn");
     const errorMsg = formulario.querySelector(".error-msg");
 
     formulario.addEventListener("submit", (e) => {
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const telefono = document.getElementById("telefono").value.trim();
         const email = document.getElementById("email").value.trim();
-        const mensaje = document.getElementById("mensaje").value.trim();
+       
         const inputOculto = document.getElementById("oculto").value.trim();
 
         submitBtn.classList.remove("click", "error");
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-        if (telefono === "" || email === "" || mensaje === "") {
+        if (telefono === "" || email === "" ) {
             // Mostrar cruz roja y mensaje de error
             submitBtn.classList.add("error");
             errorMsg.classList.add("show");
@@ -64,3 +64,29 @@ document.getElementById("overlay").addEventListener("click", () => {
   document.getElementById("modal").classList.remove("open");
   document.getElementById("overlay").classList.remove("open");
 });
+
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.2  // se activa cuando el 20% del elemento está en pantalla
+    });
+
+    // Observa títulos y iconos
+    document.querySelectorAll('.section-tittle')
+      .forEach(el => observer.observe(el));
+
+      document.querySelectorAll('.prof-card')
+          .forEach(card => observer.observe(card));
+
+           document.querySelectorAll('.card')
+          .forEach(card => observer.observe(card));
+  });
+
