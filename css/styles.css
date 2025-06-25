@@ -48,6 +48,7 @@ display: flex;
 }
 
 #cisne{
+  padding-top: 0.25rem;
     font-size: 1.8rem;
     color: white;
     font-weight: bold;
@@ -105,20 +106,40 @@ display: flex;
   list-style: none;
   display: flex;
   gap: 1rem;
- 
+ margin-bottom: 0;
 }
 
 .lista-container-nav li a {
   color: white;
   text-decoration: none;
-  padding: .5rem;
+  padding: .2rem;
+  margin-left: 3rem;
   border-radius: var(--radius);
   transition: background .2s;
 
 }
-.lista-container-nav li a:hover {
+.lista-container-nav li:not(.sin-hover) a:hover {
   background: rgba(255,255,255,.3);
 }
+
+li.sin-hover a img{
+ cursor: pointer;                         /* convierte el cursor en mano */
+  transition: transform 0.2s ease-out;
+}
+
+li.sin-hover a img:hover{
+  transform: scale(1.1);
+}
+#useradminimg{
+  margin-left: 0%;
+  margin-right: 2rem;
+  border-left: 0;
+  max-width: 35px;
+  max-height: auto;
+
+
+}
+
 
 
 h2{
@@ -702,6 +723,7 @@ form fieldset label {
   cursor: pointer;
   transition: background .3s, color .3s;
   margin-top: 1rem;
+  max-width:500rem;
 }
 .submit:hover {
   background: var(--primary-color);
@@ -781,6 +803,16 @@ input.oculto {
     display: none;
 }
 
+
+#olvidastepass{
+   display: flex;
+   justify-content: center;
+   margin-top: 4rem;
+   margin-bottom: 3rem;
+   text-decoration: none;
+}
+
+
 /******************************************/
 
 /* h2 y animaciones de los logos*/
@@ -843,8 +875,32 @@ input.oculto {
 }
 
 
-/************estilos del formulario de contacto********/
+/************estilos del boton de whatsapp********/
 
 
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;         /* distancia desde abajo */
+  right: 20px;          /* distancia desde el borde derecho */
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: transform .2s;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
 
+.whatsapp{
+  max-width: 55px;
+}
 

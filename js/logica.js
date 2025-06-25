@@ -50,7 +50,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
     });
+
+
+
+
+
+
 });
+
+
+
+
+
 document.querySelector(".btn-contact").addEventListener("click", e => {
   e.preventDefault();
   document.getElementById("modal").classList.add("open");
@@ -67,6 +78,84 @@ document.getElementById("overlay").addEventListener("click", () => {
 
 
 
+/***********************************para el form del admin******************* */
+document.addEventListener("DOMContentLoaded", () => {
+  // 1) Abrir/cerrar menú burger...
+  const btnMenu = document.querySelector(".btn_menu");
+  const menuList = document.querySelector(".lista-container-nav");
+  btnMenu.addEventListener("click", () => menuList.classList.toggle("show"));
+
+  // 2) Formulario de login ADMIN
+  const formulario = document.getElementById("form-admin");
+  const submitBtn  = document.getElementById("btn-admin");
+  const errorMsg   = formulario.querySelector(".error-msg");
+
+  formulario.addEventListener("submit", e => {
+    e.preventDefault();
+
+    const password    = document.getElementById("password").value.trim();
+    const email       = document.getElementById("email").value.trim();
+    const inputOculto = document.getElementById("oculto").value.trim();
+
+    // restablecer estados
+    submitBtn.classList.remove("click", "error");
+    errorMsg.classList.remove("show");
+
+    // defensa contra bots
+    if (inputOculto !== "") return;
+
+    // validación
+    if (password === "" || email === "") {
+      submitBtn.classList.add("error");
+      errorMsg.classList.add("show");
+      return;
+    }
+
+    // todo OK → animación + redirección
+    submitBtn.classList.add("click");
+    submitBtn.disabled = true;
+    setTimeout(() => {
+      window.location.href = "indexadmin.html";
+    }, 800);
+  });
+});
+
+
+
+
+
+
+
+
+/******************************************************************************** */
+
+//para el modal del login del admin
+// -- POPUP ADMIN --
+  document.querySelector('.btn-admin')
+    .addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('modal-admin').classList.add('open');
+      document.getElementById('overlay-admin').classList.add('open');
+    });
+  document.getElementById('close-admin')
+    .addEventListener('click', () => {
+      document.getElementById('modal-admin').classList.remove('open');
+      document.getElementById('overlay-admin').classList.remove('open');
+    });
+  document.getElementById('overlay-admin')
+    .addEventListener('click', () => {
+      document.getElementById('modal-admin').classList.remove('open');
+      document.getElementById('overlay-admin').classList.remove('open');
+    });
+
+
+
+
+
+
+
+
+//observers de elementos
   document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {

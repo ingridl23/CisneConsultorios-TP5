@@ -31,7 +31,7 @@
             <li><a href="#" class="btn-contact">Contacto</a></li>
             <li class="li-container-a"><a href="#ubicacion">Ubicacion</a></li>
             <li class="li-container-a"><a href="#instituciones">Instituciones</a></li>
-            <li class="li-container-a"><a href="admin.html">Panel Para Admin</a></li>
+            <li class="li-container-a  sin-hover  btn-admin"><a href="#"><img id="useradminimg" src="img/usuario.png"> </a></li>
         </ul>
 
      </nav>
@@ -308,10 +308,10 @@
 
 
 
-<div id="whatsapp">
 
-   <a href="https://wa.me/1234567890"><i class="fab fa-whatsapp"></i></a>
-</div>
+
+ 
+
 
   <!-- OVERLAY -->
   <div class="modal-overlay" id="overlay"></div>
@@ -356,8 +356,50 @@
   </div>
 
 
+<a
+  href="https://wa.me/5491126895894?text=¡Hola somos consultorios Cisne, contactanos a traves de nuestro whatsapp, muchas gracias."
+  class="whatsapp-float"
+  target="_blank" rel="noopener">
+
+  <img class="whatsapp" src="img/whatsapp.png">
+</a>
 
 
+
+  <!-- OVERLAY -->
+  <div class="modal-overlay" id="overlay-admin"></div>
+
+  <!-- MODAL -->
+  <div class="modal"  id="modal-admin">
+    <div class="modal-header">
+      <img id="" src="img/logo_cisne_insta-removebg-preview.png" alt="Logo CISNE">
+      <span>PANEL PARA ADMINISTRADOR</span>
+    </div>
+    <button class="modal-close" id="close-admin">&times;</button>
+
+    <form  id="form-admin" class="form" novalidate>
+      <div class="field-group">
+        <input type="email" id="email" placeholder=" " required>
+        <label for="name">EMAIL</label>
+      </div>
+     
+      <div class="field-group">
+        <input type="password" id="password" placeholder=" " required>
+        <label for="email">CONTRASEÑA</label>
+      </div>
+
+      <input type="text"  id="oculto"name="oculto" class="oculto" autocomplete="off"    value="">
+
+     
+      <button class="submit " type="submit" id="btn-admin-send">
+        <span class="btn-text">LOGUEARSE</span>
+        <span class="checkmark">&#10004;</span>
+        <span class="checkmark2">&#10008;</span>
+      </button>
+      <a id="olvidastepass" href="resetlogin.html">¿olvidaste la contraseña?</a>
+      <p class="error-msg">Complete los campos obligatorios</p>
+    </form>
+  </div>
 
 
 
