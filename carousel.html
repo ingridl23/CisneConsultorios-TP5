@@ -1,0 +1,68 @@
+<!-- carousel.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Admin - Carrusel</title>
+  <link rel="stylesheet" href="css/cssadmin.css" />
+</head>
+<body>
+  <header class="admin-header">
+    <h1>Panel de Administración</h1>
+    <button id="btn-logout" class="btn-logout">Cerrar sesión</button>
+  </header>
+
+  <div class="admin-container">
+    <aside class="admin-sidebar">
+      <nav>
+        <ul>
+          <li><a href="dashboard.html">Panel</a></li>
+          <li><a href="flyers.html">Flyers</a></li>
+          <li><a href="carousel.html" class="active">Carrusel</a></li>
+          <li><a href="professionals.html">Profesionales</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="admin-main">
+      <h2>Gestión de Carrusel</h2>
+      <button id="add-slide" class="btn-add">+ Añadir Slide</button>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Leyenda</th>
+            <th>Imagen</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Filas generadas dinámicamente -->
+        </tbody>
+      </table>
+
+      <!-- Modal de edición de Slide -->
+      <div id="slide-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <h3>Editar Slide</h3>
+          <form id="slide-form">
+            <input type="hidden" id="slide-id" name="id">
+            <div class="form-group">
+              <label for="slide-caption">Leyenda</label>
+              <input type="text" id="slide-caption" name="caption" required>
+            </div>
+            <div class="form-group">
+              <label for="slide-image">Imagen</label>
+              <input type="file" id="slide-image" name="image" accept="image/*">
+            </div>
+            <button type="submit" class="btn-save">Guardar</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/admin_carousel.js"></script>
+</html>

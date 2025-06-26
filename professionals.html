@@ -1,0 +1,76 @@
+<!-- professionals.html -->
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Admin - Carrusel</title>
+  <link rel="stylesheet" href="css/cssadmin.css" />
+</head>
+
+<body>
+
+<header class="admin-header">
+    <h1>Panel de Administración</h1>
+    <button id="btn-logout" class="btn-logout">Cerrar sesión</button>
+  </header>
+
+  <div class="admin-container">
+    <aside class="admin-sidebar">
+        <nav>
+        <ul>
+          <li><a href="dashboard.html">Panel</a></li>
+          <li><a href="flyers.html">Flyers</a></li>
+          <li><a href="carousel.html">Carrusel</a></li>
+          <li><a href="professionals.html" class="active">Profesionales</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="admin-main">
+      <h2>Gestión de Profesionales</h2>
+      <button id="add-professional" class="btn-add">+ Añadir Profesional</button>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Información</th>
+            <th>Foto</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Filas generadas dinámicamente -->
+        </tbody>
+      </table>
+
+      <!-- Modal de edición de Profesional -->
+      <div id="professional-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <h3>Editar Profesional</h3>
+          <form id="professional-form">
+            <input type="hidden" id="prof-id" name="id">
+            <div class="form-group">
+              <label for="prof-name">Nombre</label>
+              <input type="text" id="prof-name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="prof-info">Información</label>
+              <textarea id="prof-info" name="info" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="prof-photo">Foto</label>
+              <input type="file" id="prof-photo" name="photo" accept="image/*">
+            </div>
+            <button type="submit" class="btn-save">Guardar</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+
+</body>
+</html>

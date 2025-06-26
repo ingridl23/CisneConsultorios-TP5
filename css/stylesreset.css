@@ -1,0 +1,97 @@
+/* Centrar todo el contenido vertical y horizontalmente 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;         /* para que no quede pegado en móviles */
+/*}
+*/
+/* Contenedor del formulario y header */
+.reset-container {
+  margin: 2rem auto;       /* separa del nav/footer y centra horizontalmente */
+  width: 100%;
+  max-width: 400px;         /* ancho máximo */
+  padding: 1.5rem;
+  box-sizing: border-box;   /* incluye padding en el ancho */
+}
+
+@media (max-width: 480px) {
+  .reset-container {
+    margin: 1rem;           /* menos margen en móviles */
+    padding: 1rem;          /* menos padding en móviles */
+    max-width: 100%;        /* ocupa todo el ancho disponible */
+  }
+}
+
+/* Ajustes del header dentro del reset */
+.reset-container .modal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Formulario */
+.reset-container .form {
+  width: 100%;
+ 
+}
+
+/* Inputs */
+.reset-container .field-group input {
+  width: 100%;
+}
+
+/* Botón */
+.reset-container .submit {
+  width: 100%;
+}
+
+
+/* Animación botón modal */
+.submit {
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+.submit .btn-text,
+.submit .checkmark,
+.submit .checkmark2 {
+  display: inline-block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.submit .checkmark,
+.submit .checkmark2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+}
+
+/* Al hacer click: checkmark entra */
+.submit.click {
+  background: var(--primary-color);
+}
+.submit.click .btn-text {
+  opacity: 0;
+}
+.submit.click .checkmark {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+/* En caso de error: cross entra */
+.submit.error .btn-text {
+  opacity: 0;
+}
+.submit.error .checkmark2 {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}

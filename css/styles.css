@@ -27,7 +27,7 @@
 
 
 body {
-    background-color: rgb(161, 161, 161);
+  
 }
 
 
@@ -71,8 +71,8 @@ display: flex;
     margin-bottom: 3rem;
     color: rgb(255, 253, 253);
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: 500;
-
+    font-weight: 400;
+    
 }
 
 .btn_menu{
@@ -106,21 +106,38 @@ display: flex;
   list-style: none;
   display: flex;
   gap: 1rem;
- margin-bottom: 0;
+  margin-bottom: 0;
 }
 
+/* 1. Asegúrate de que el <a> sea inline-block y relativo */
 .lista-container-nav li a {
+  position: relative;
+  display: inline-block;     /* para que el ::after pueda crecer */
   color: white;
   text-decoration: none;
   padding: .2rem;
   margin-left: 3rem;
-  border-radius: var(--radius);
-  transition: background .2s;
+  /* quita el transition de background si no lo usas */
+}
 
+/* 2.  inicialmente width: 0 */
+.lista-container-nav li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;             
+  height: 2px;
+  width: 0;
+  background-color: #3caf50; /* tu verde */
+  transition: width .3s ease;
 }
-.lista-container-nav li:not(.sin-hover) a:hover {
-  background: rgba(255,255,255,.3);
+
+/* 3. Al hacer hover, expande SOLO el ::after */
+.lista-container-nav li:not(.sin-hover) a:hover::after {
+  width: 100%;
 }
+
+
 
 li.sin-hover a img{
  cursor: pointer;                         /* convierte el cursor en mano */
@@ -387,41 +404,7 @@ div ,h5, p{
 
 
 
-/* ─── RESPONSIVE NAV ─── */
-@media (max-width: 768px) {
-  .btn_menu { display: block; }
-  .lista-container-nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: var(--primary-color);
-    flex-direction: column;
-    display: none;
-    padding: var(--gap) 0;
-    z-index: 15;
-  }
-  .lista-container-nav.show {
-    display: flex;
-  }
-  .lista-container-nav li {
-    margin: .5rem 0;
-  }
 
-
-/* En pantallas ≥768px, ponemos la foto a la izquierda */
-
-  .prof-card {
-    flex-direction: row;
-    text-align: left;
-  }
-  .prof-card .fotos-prof {
-    margin: 0 1rem 0 0;
-  }
-  .prof-card div {
-    flex: 1;
-  }
-}
 
 
 
@@ -431,7 +414,7 @@ footer {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(to bottom, #25dd81, #a5ffb4);
+    background: linear-gradient(to bottom, #44923a, #6ebb7b);
     padding: 5rem;
     color: #f0f0f0;
 }
@@ -449,6 +432,15 @@ ol a {
     text-decoration: none;
    
 }
+
+ .navfooters ul li a{
+      text-decoration: none;
+      color: #176132;
+    }
+
+     .navfooters ul li a:hover{
+      color:#f0f7f3;
+     }
 
 
 footer .redes {
@@ -470,44 +462,52 @@ footer .redes a:hover img{
 /* Mobile */
 
 @media screen and (max-width: 768px) {
-    .btn_menu {
-        display: block;
-        color: white;
-        padding: 1rem;
-        cursor: pointer;
-        font-size: 2rem;
-        z-index: 10;
-        /* Asegura que el botón esté por encima de otros elementos */
-        transition: transform 0.3s ease, color 0.3s ease;
-    }
-    /* Hover del botón en móviles */
-    .btn_menu:hover {
-        color: green;
-        /* Cambiar color cuando se pasa el mouse */
-        transform: scale(1.3);
-        /* Efecto de aumentar tamaño */
-    }
-    .lista-container-nav {
-        max-height: 0;
-        overflow: hidden;
-        flex-direction: column;
-       
-        background-color: var(--primary-color);
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        transition: max-height 0.4s ease;
-        position: absolute;
-        top: 5rem;
-        /* Asegura que no se sobreponga al logo */
-    }
-    .lista-container-nav.show {
-        max-height: 100rem;
-        width: 100%;
-        align-items: center;
-        justify-content: center;
-       
-    }
+  /* 1. Mostrar botón burger */
+  .btn_menu {
+    display: block;
+    cursor: pointer;
+    margin-right: 1rem;
+     transition: transform 0.3s ease;
+}
+  .btn_menu:hover{
+      transform: scale(1.5);
+      color: #144909;
+  }
+
+ #consultoriostitulo{
+  font-size: 18px;
+ }
+
+
+  /* 2. Ocultar por defecto la lista y centrar su contenido al abrirse */
+  #navbar .lista-container-nav {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 100%;    /* justo debajo del header */
+    left: 0; right: 0;
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    z-index: 15;
+  }
+  #navbar .lista-container-nav.show {
+    display: flex;
+  }
+
+  /* 3. Cada ítem ocupa todo el ancho y centra el enlace */
+  #navbar .lista-container-nav li {
+    width: 100%;
+    margin: .5rem 0;
+    list-style: none;
+  }
+  #navbar .lista-container-nav li a {
+    display: block;
+    width: 100%;
+    padding: .75rem 1rem;
+    margin-left: 0;        /* anula el margin de desktop */
+    text-align: center;
+  }
     /* Asegurar que el logo se alinee a la izquierda o centrado */
     .container-head-nav {
         display: flex;
@@ -556,12 +556,36 @@ footer .redes a:hover img{
         margin-bottom: 1.2rem;
       
     }
+
+    footer, .navfooters {
+         gap: 2;
+         padding-left: 2rem;
+         padding-right: 2rem;
+    }
+
+   
+
     footer .redes a img {
         display: flex;
         flex-direction: column;
         /* default para mobile */
         margin-left: 2rem;
     }
+
+    
+    
+/* En pantallas ≥768px, ponemos la foto a la izquierda */
+
+  .prof-card {
+    flex-direction: row;
+    text-align: left;
+  }
+  .prof-card .fotos-prof {
+    margin: 0 1rem 0 0;
+  }
+  .prof-card div {
+    flex: 1;
+  }
 }
 
 /********************************estilos modal yform *******************************************/
