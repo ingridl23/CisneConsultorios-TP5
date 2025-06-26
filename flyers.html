@@ -6,13 +6,50 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Admin - Flyers</title>
   <link rel="stylesheet" href="css/cssadmin.css" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+
+  <header class="container-head-nav">
+    <div id="header-div">
+    <div class="divlogoyh1"> 
+     <img src="img/logo_cisne_insta-removebg-preview.png" alt="Logo de Cisne Consultorios" id="logo">
+      <h1 id="cisne">CISNE</h1>
+    </div>
+ </div>
+ 
+      <nav id="navbar"> 
+           <div class="btn_menu"> ☰ </div>
+         <ul class="lista-container-nav">
+             <li class="li-container-a"><a href="index.html">Inicio</a></li>
+             <li class="li-container-a"><a href="#servicios">Servicios</a></li>
+             <li class="li-container-a"><a href="#profesionales">Profesionales</a></li>
+             <li><a href="#" class="btn-contact">Contacto</a></li>
+             <li class="li-container-a"><a href="#ubicacion">Ubicacion</a></li>
+             <li class="li-container-a"><a href="#instituciones">Instituciones</a></li>
+               <li class="li-container-a"><a href="publicacion.html">Noticias</a></li>
+           
+         </ul>
+ 
+      </nav>
+ 
+ </header>
+
+
   <header class="admin-header">
     <h1>Panel de Administración</h1>
-    <button id="btn-logout" class="btn-logout">Cerrar sesión</button>
+    <div class="admin-avatar-dropdown">
+      <img id="admin-avatar" src="img/valefoto.jpg" alt="Admin">
+      <ul class="avatar-menu">
+        <li><a href="#">Editar perfil</a></li>
+        <li><a href="#" id="btn-logout">Cerrar sesión</a></li>
+      </ul>
+    </div>
   </header>
 
+
+
+ 
   <div class="admin-container">
     <aside class="admin-sidebar">
       <nav>
@@ -25,7 +62,9 @@
       </nav>
     </aside>
     <main class="admin-main">
-      <h2>Gestión de Flyers</h2>
+      <h3>Gestión de Flyers</h3>
+      <br>
+      
       <button id="add-flyer" class="btn-add">+ Añadir Flyer</button>
       <table class="admin-table">
         <thead>
